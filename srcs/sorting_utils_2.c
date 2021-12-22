@@ -60,9 +60,9 @@ void	finish_list_a(t_list *list_a, t_move_list *move_list)
 			tmp = tmp->previous;
 			count_rra++;
 		}
-		/* while (list_a->first->order != 0 && (count_ra < count_rra))
-			move_r(list_a, "ra", move_list); */
-		while (list_a->first->order != 0)
+		while (list_a->first->order != 0 && (count_ra < count_rra))
+			move_r(list_a, "ra", move_list);
+		while (list_a->first->order != 0 && (count_ra >= count_rra))
 			move_rr(list_a, "rra", move_list);
 	}
 }
