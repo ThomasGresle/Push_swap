@@ -32,7 +32,7 @@ t_move_list	*create_move_list(void)
 {
 	t_move_list *list;
 
-	list = (t_list *)malloc(sizeof(t_list));
+	list = (t_move_list *)malloc(sizeof(t_move_list));
 	if (!(list))
 		return (0);
 	list->first_move = 0;

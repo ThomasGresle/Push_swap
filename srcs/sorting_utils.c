@@ -17,23 +17,26 @@ int	is_move_to_b(t_list *list_a)
 	return (0);
 }
 
-void	move_s(t_list *list, char *move, t_move_list *move_list)
+void	move_s_util(t_list_number *first, t_list_number *second, t_list *list)
 {
 	t_list_number *prev;
 	t_list_number *next;
 
-	if (list->size >= 2)
-	{
-		prev = list->first->previous;
-		next = list->first->next->next;
-		prev->next = list->first->next;
-		list->first->next->previous = prev;
-		list->first->next = next;
-		next->previous = list->first;
-		list->first->next->next = list->first;
-		list->first->previous = list->first->next;
-		list->first = list->first->next;
-	}
+	prev = first->previous;
+	next = second->next;
+	prev->next = second;
+	second->previous = prev;
+	first->next = next;
+	next->previous = first;
+	second->next = first;
+	first->previous = second;
+	list->first = second;
+}
+
+void	move_s(t_list *list, char *move, t_move_list *move_list)
+{
+	if (list && list->first && list->size >= 2)
+		move_s_util(list->first, list->first->next, list);
 	if (move && !(move_list))
 	{
 		ft_putstr(move);
@@ -41,18 +44,6 @@ void	move_s(t_list *list, char *move, t_move_list *move_list)
 	}
 	if (move && move_list)
 		add_move(move_list, create_move(move));
-}
-
-void	move_p(t_list *dest, t_list *src, char *move, t_move_list *list)
-{
-	put_to(dest, take_from(src));
-	if (move && !(list))
-	{
-		ft_putstr(move);
-		ft_putstr("\n");
-	}
-	if (move && list)
-		add_move(list, create_move(move));
 }
 
 void	move_r(t_list *list, char *move, t_move_list *move_list)

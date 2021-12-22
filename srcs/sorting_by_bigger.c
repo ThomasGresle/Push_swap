@@ -8,9 +8,9 @@ int	use_sa_bigger(t_list *list_a)
 	if (list_a->size >= 2)
 	{
 		move_s(list_a, NULL, NULL);
-		keep_a = number_keep_a_bigger(list_a->begin_sort);
+		keep_a = number_keep_a_bigger(list_a , list_a->begin_sort);
 		move_s(list_a, NULL, NULL);
-		number_keep_a_bigger(list_a->begin_sort);
+		number_keep_a_bigger(list_a, list_a->begin_sort);
 		if (keep_a > list_a->keep_a)
 			return (1);
 	}
@@ -25,7 +25,7 @@ void	sort_list_a_by_bigger(t_list *list_a, t_list *list_b,
 		if (use_sa_bigger(list_a))
 		{
 			move_s(list_a, "sa", move_list);
-			list_a->keep_a = number_keep_a_bigger(list_a->begin_sort);
+			list_a->keep_a = number_keep_a_bigger(list_a, list_a->begin_sort);
 		}
 		else if (list_a->first->no_move == 0)
 			move_p(list_b, list_a, "pb", move_list);

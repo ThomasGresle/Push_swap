@@ -40,7 +40,7 @@ void	sort_list_b(t_list *list_a, t_list *list_b, t_move_list *move_list)
 		ft_putstr("Error\nMalloc failed\n");
 		free_list(list_a);
 		free_list(list_b);
-		free_list(move_list);
+		free_move_list(move_list);
 		exit (0);
 	}
 	while (list_b->size)

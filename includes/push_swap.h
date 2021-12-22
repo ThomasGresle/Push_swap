@@ -71,8 +71,8 @@ void			move_s(t_list *list, char *move, t_move_list *move_list);
 void			move_p(t_list *dest, t_list *src, char *move, t_move_list *list);
 void			move_r(t_list *list, char *move, t_move_list *move_list);
 void			move_rr(t_list *list, char *move, t_move_list *move_list);
-int				number_keep_a_bigger(t_list_number *begin_sort);
-int				number_keep_a_link(t_list_number *begin_sort);
+int				number_keep_a_bigger(t_list *list, t_list_number *begin_sort);
+int				number_keep_a_link(t_list *list, t_list_number *begin_sort);
 void			put_to(t_list *list, t_list_number *number);
 t_list_number	*take_from(t_list *list);
 t_swap			*create_swap(void);
@@ -82,5 +82,8 @@ int				pick_max(int i, int j);
 void			move_r_all(t_list *list_a, t_list *list_b, char *move, t_move_list *move_list);
 void			move_rr_all(t_list *list_a, t_list *list_b, char *move, t_move_list *move_list);
 void			finish_list_a(t_list *list_a, t_move_list *move_list);
+char			*ft_strdup(char *s1);
+void			add_move(t_move_list *list, t_move *move);
+
 
 # endif

@@ -1,5 +1,38 @@
 #include "../includes/push_swap.h"
 
+void	sort_list_of_2(t_list *list_1, t_list *list_2)
+{	
+	int	size;
+	t_list_number	*tmp;
+
+	size = 1;
+	tmp = list_1->first->next;
+	while (tmp != list_1->first)
+	{
+		tmp = tmp->next;
+		size++;
+	}
+	if (size == 1)
+	{
+		free_list(list_1);
+		free_list(list_2);
+		exit(0);
+	}
+	else if (size == 2)
+	{
+		if (list_1->first->number > list_1->first->next->number)
+		{
+			ft_putstr("sa\n");
+			free_list(list_1);
+			free_list(list_2);
+			exit(0);
+		}
+		free_list(list_1);
+		free_list(list_2);
+		exit(0);
+	}
+}
+
 void	export_moves(t_move_list *list)
 {
 	t_move	*tmp;
@@ -32,6 +65,7 @@ void	order_and_sort(t_list *list_by_bigger, t_list *list_by_link)
 		export_moves(moves_by_link);
 	else
 		export_moves(moves_by_bigger);
+	
 	free_move_list(moves_by_bigger);
 	free_move_list(moves_by_link);
 }
@@ -59,6 +93,7 @@ int main(int ac, char **av)
 			ft_putstr("Error\nIncorrect stack\n");
 			return (0);
 		}
+		sort_list_of_2(list_by_bigger, list_by_link);
 		order_and_sort(list_by_bigger, list_by_link);
 	}
 	return (0);

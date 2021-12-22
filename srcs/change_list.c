@@ -38,3 +38,22 @@ void			add_number(t_list *list, t_list_number *number)
 		list->size++;
 	}
 }
+
+void	add_move(t_move_list *list, t_move *move)
+{
+	t_move *last;
+
+	if (list && move)
+	{
+		if (!(list->first_move))
+			list->first_move = move;
+		else
+		{
+			last = list->first_move;
+			while (last->next)
+				last = last->next;
+			last->next = move;
+		}
+		list->move_nbr += 1;
+	}
+}

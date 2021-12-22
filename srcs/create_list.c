@@ -101,11 +101,10 @@ t_list_number	*return_unset_min(t_list *list)
 	tmp = list->first;
 	while (i < list->size)
 	{
-		if (tmp->order == -1 && (tmp->number < min->number 
-			|| min_exists == 0))
+		if (tmp->order == -1 && (min_exists == 0 || tmp->number < min->number))
 		{
 			min = tmp;
-			min_exists = 0;
+			min_exists = 1;
 		}
 		tmp = tmp->next;
 		i++;
