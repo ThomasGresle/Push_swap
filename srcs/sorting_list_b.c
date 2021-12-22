@@ -1,12 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_list_b.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:15:23 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:26:34 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-void	rotate_b(t_list *list_a, t_list *list_b, t_swap *swap, t_move_list *move_list)
+void	rotate_b_end(t_swap *swap, t_list *list_b, t_move_list *move_list)
+{
+	if (swap->b_rotation == 0)
+		move_r(list_b, "rb", move_list);
+	else
+		move_rr(list_b, "rrb", move_list);
+}
+
+void	rotate_b(t_list *list_a, t_list *list_b,
+			t_swap *swap, t_move_list *move_list)
 {
 	while (swap->a_nbr != list_a->first || swap->b_nbr != list_b->first)
 	{
-		if (swap->a_rotation == swap->b_rotation &&
-			swap->a_nbr != list_a->first &&
-			swap->b_nbr != list_b->first)
+		if (swap->a_rotation == swap->b_rotation
+			&& swap->a_nbr != list_a->first
+			&& swap->b_nbr != list_b->first)
 		{
 			if (swap->a_rotation == 0)
 				move_r_all(list_a, list_b, "rr", move_list);
@@ -21,18 +42,13 @@ void	rotate_b(t_list *list_a, t_list *list_b, t_swap *swap, t_move_list *move_li
 				move_rr(list_a, "rra", move_list);
 		}
 		else if (swap->b_nbr != list_b->first)
-		{
-			if (swap->b_rotation == 0)
-				move_r(list_b, "rb", move_list);
-			else
-				move_rr(list_b, "rrb", move_list);
-		}
+			rotate_b_end(swap, list_b, move_list);
 	}
 }
 
 void	sort_list_b(t_list *list_a, t_list *list_b, t_move_list *move_list)
 {
-	t_swap *swap;
+	t_swap	*swap;
 
 	swap = create_swap();
 	if (!(swap))

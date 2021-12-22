@@ -6,7 +6,7 @@
 /*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 10:58:13 by tgresle           #+#    #+#             */
-/*   Updated: 2021/12/22 03:54:50 by tgresle          ###   ########.fr       */
+/*   Updated: 2021/12/22 21:09:44 by tgresle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	int	check(const char *str, int *i, int *erreur)
 		(*i)++;
 	}
 	if (str[*i] == '\0' || (str[*i] != '+'
-		&& str[*i] != '-' && (str[*i] < 48 && str[*i] > 57)))
+			&& str[*i] != '-' && (str[*i] < 48 && str[*i] > 57)))
 	{
 		*erreur = 1;
 		return (0);
@@ -39,12 +39,12 @@ static	int	check(const char *str, int *i, int *erreur)
 		return (1);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int	i;
+	int		i;
 	long	resultat;
-	int	erreur;
-	int	signe;
+	int		erreur;
+	int		signe;
 
 	i = 0;
 	resultat = 0;

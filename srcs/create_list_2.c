@@ -1,4 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_list_2.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:14:08 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:17:32 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
+
+void	clean_exit(t_list *list, char **mat)
+{
+	ft_putstr("Error\nAt least one arg is not an int\n");
+	if (list)
+		free_list(list);
+	if (mat)
+		free_array(mat);
+	exit(0);
+}
 
 t_list	*create_list_b(void)
 {
@@ -30,7 +52,7 @@ t_move	*create_move(char *move)
 
 t_move_list	*create_move_list(void)
 {
-	t_move_list *list;
+	t_move_list	*list;
 
 	list = (t_move_list *)malloc(sizeof(t_move_list));
 	if (!(list))

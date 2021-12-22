@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_begin_sort.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:15:06 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:39:58 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	number_keep_a_bigger(t_list *list, t_list_number *begin_sort)
 {
-	int	order;
-	int	keep_a;
+	int				order;
+	int				keep_a;
 	t_list_number	*tmp;
 
 	keep_a = 0;
@@ -30,9 +42,9 @@ int	number_keep_a_bigger(t_list *list, t_list_number *begin_sort)
 
 void	set_begin_sort_bigger(t_list *list)
 {
-	int	i;
-	int	keep_a;
-	t_list_number *tmp;
+	int				i;
+	int				keep_a;
+	t_list_number	*tmp;
 
 	i = 0;
 	keep_a = 0;
@@ -48,7 +60,7 @@ void	set_begin_sort_bigger(t_list *list)
 				list->keep_a = keep_a;
 			}
 			else if (keep_a == list->keep_a && (list->begin_sort == 0
-				|| tmp->number < list->begin_sort->number))
+					|| tmp->number < list->begin_sort->number))
 				list->begin_sort = tmp;
 			tmp = tmp->next;
 			i++;
@@ -59,8 +71,8 @@ void	set_begin_sort_bigger(t_list *list)
 
 int	number_keep_a_link(t_list *list, t_list_number *begin_sort)
 {
-	int	order;
-	int	keep_a;
+	int				order;
+	int				keep_a;
 	t_list_number	*tmp;
 
 	keep_a = 0;
@@ -87,9 +99,9 @@ int	number_keep_a_link(t_list *list, t_list_number *begin_sort)
 
 void	set_begin_sort_link(t_list *list)
 {
-	int	i;
-	int	keep_a;
-	t_list_number *tmp;
+	int				i;
+	int				keep_a;
+	t_list_number	*tmp;
 
 	i = 0;
 	keep_a = 0;
@@ -103,7 +115,7 @@ void	set_begin_sort_link(t_list *list)
 			list->keep_a = keep_a;
 		}
 		else if (keep_a == list->keep_a && (list->begin_sort == 0
-			|| tmp->number < list->begin_sort->number))
+				|| tmp->number < list->begin_sort->number))
 			list->begin_sort = tmp;
 		tmp = tmp->next;
 		i++;

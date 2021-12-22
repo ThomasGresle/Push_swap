@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_by_bigger.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:15:11 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:08:18 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	use_sa_bigger(t_list *list_a)
@@ -8,7 +20,7 @@ int	use_sa_bigger(t_list *list_a)
 	if (list_a->size >= 2)
 	{
 		move_s(list_a, NULL, NULL);
-		keep_a = number_keep_a_bigger(list_a , list_a->begin_sort);
+		keep_a = number_keep_a_bigger(list_a, list_a->begin_sort);
 		move_s(list_a, NULL, NULL);
 		number_keep_a_bigger(list_a, list_a->begin_sort);
 		if (keep_a > list_a->keep_a)
@@ -38,8 +50,8 @@ t_move_list	*sort_by_bigger(t_list *list_a)
 {
 	int			error;
 	t_list		*list_b;
-	t_move_list *move_list;
-	
+	t_move_list	*move_list;
+
 	error = 0;
 	list_b = create_list_b();
 	move_list = create_move_list();

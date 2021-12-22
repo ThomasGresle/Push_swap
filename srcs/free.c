@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:14:24 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:33:04 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	free_array(char **mat)
@@ -18,13 +30,13 @@ void	free_array(char **mat)
 
 void	free_list(t_list *list)
 {
-	int i;
-	t_list_number *tmp;
-	t_list_number *to_free;
+	int				i;
+	t_list_number	*tmp;
+	t_list_number	*to_free;
 
 	i = 0;
 	to_free = list->first;
-	while(i < list->size)
+	while (i < list->size)
 	{
 		tmp = to_free;
 		to_free = to_free->next;

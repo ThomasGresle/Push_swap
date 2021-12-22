@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:14:47 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:41:02 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-t_list_number *take_from(t_list *list)
+t_list_number	*take_from(t_list *list)
 {
-	t_list_number *number;
+	t_list_number	*number;
 
 	number = 0;
 	if (list->size)
@@ -30,7 +42,7 @@ t_list_number *take_from(t_list *list)
 
 void	put_to(t_list *list, t_list_number *number)
 {
-	t_list_number *last;
+	t_list_number	*last;
 
 	if (!(list->first))
 	{

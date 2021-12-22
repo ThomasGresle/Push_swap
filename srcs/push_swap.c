@@ -1,8 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:14:53 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:37:56 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
+
+void	free_sort_list(t_list *list_1, t_list *list_2)
+{
+	free_list(list_1);
+	free_list(list_2);
+	exit(0);
+}
 
 void	sort_list_of_2(t_list *list_1, t_list *list_2)
 {	
-	int	size;
+	int				size;
 	t_list_number	*tmp;
 
 	size = 1;
@@ -13,23 +32,15 @@ void	sort_list_of_2(t_list *list_1, t_list *list_2)
 		size++;
 	}
 	if (size == 1)
-	{
-		free_list(list_1);
-		free_list(list_2);
-		exit(0);
-	}
+		free_sort_list(list_1, list_2);
 	else if (size == 2)
 	{
 		if (list_1->first->number > list_1->first->next->number)
 		{
 			ft_putstr("sa\n");
-			free_list(list_1);
-			free_list(list_2);
-			exit(0);
+			free_sort_list(list_1, list_2);
 		}
-		free_list(list_1);
-		free_list(list_2);
-		exit(0);
+		free_sort_list(list_1, list_2);
 	}
 }
 
@@ -65,16 +76,15 @@ void	order_and_sort(t_list *list_by_bigger, t_list *list_by_link)
 		export_moves(moves_by_link);
 	else
 		export_moves(moves_by_bigger);
-	
 	free_move_list(moves_by_bigger);
 	free_move_list(moves_by_link);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int			error;
-    t_list		*list_by_bigger;
-	t_list		*list_by_link;
+	int		error;
+	t_list	*list_by_bigger;
+	t_list	*list_by_link;
 
 	error = 0;
 	if (ac < 2)

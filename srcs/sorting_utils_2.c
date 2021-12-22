@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_utils_2.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:15:32 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:38:24 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	move_p(t_list *dest, t_list *src, char *move, t_move_list *list)
@@ -12,7 +24,8 @@ void	move_p(t_list *dest, t_list *src, char *move, t_move_list *list)
 		add_move(list, create_move(move));
 }
 
-void	move_r_all(t_list *list_a, t_list *list_b, char *move, t_move_list *move_list)
+void	move_r_all(t_list *list_a, t_list *list_b,
+			char *move, t_move_list *move_list)
 {
 	move_r(list_a, NULL, NULL);
 	move_r(list_b, NULL, NULL);
@@ -25,7 +38,8 @@ void	move_r_all(t_list *list_a, t_list *list_b, char *move, t_move_list *move_li
 		add_move(move_list, create_move(move));
 }
 
-void	move_rr_all(t_list *list_a, t_list *list_b, char *move, t_move_list *move_list)
+void	move_rr_all(t_list *list_a, t_list *list_b,
+			char *move, t_move_list *move_list)
 {
 	move_rr(list_a, NULL, NULL);
 	move_rr(list_b, NULL, NULL);

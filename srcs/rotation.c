@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotation.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:14:59 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:27:41 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	pick_rotation(int size, t_swap new_swap, t_swap *swap)
@@ -41,7 +53,8 @@ t_list_number	*find_spot_a(t_list *list_a, int order)
 	tmp = list_a->begin_sort;
 	if (order < tmp->order)
 	{
-		while (order < tmp->previous->order && tmp->order > tmp->previous->order)
+		while (order < tmp->previous->order
+			&& tmp->order > tmp->previous->order)
 			tmp = tmp->previous;
 	}
 	else
@@ -54,13 +67,14 @@ t_list_number	*find_spot_a(t_list *list_a, int order)
 	return (tmp);
 }
 
-void	best_rotation(t_list *list_a, t_list *list_b, t_list_number *tmp, t_swap *swap)
+void	best_rotation(t_list *list_a, t_list *list_b,
+			t_list_number *tmp, t_swap *swap)
 {
 	t_swap	new_swap;
-	int count_ra;
-	int	count_rra;
-	int	count_rb;
-	int	count_rrb;
+	int		count_ra;
+	int		count_rra;
+	int		count_rb;
+	int		count_rrb;
 
 	count_ra = 0;
 	count_rra = 0;
@@ -83,8 +97,8 @@ void	best_rotation(t_list *list_a, t_list *list_b, t_list_number *tmp, t_swap *s
 
 void	choose_rotation(t_list *list_a, t_list *list_b, t_swap *swap)
 {
-	int	i;
-	t_list_number *tmp;
+	int				i;
+	t_list_number	*tmp;
 
 	i = 0;
 	tmp = 0;

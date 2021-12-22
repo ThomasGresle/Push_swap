@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_list.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:14:19 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:21:06 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	from_arr(t_list *list, int ac, char **av)
 {
-	int i;
-	int list_size;
-	int	number;
-	int error;
-	t_list_number *new;
-	
+	int				i;
+	int				list_size;
+	int				number;
+	int				error;
+	t_list_number	*new;
+
 	i = 1;
 	list_size = ac;
 	number = 0;
@@ -17,27 +29,23 @@ void	from_arr(t_list *list, int ac, char **av)
 	{
 		number = ft_atoi_check(av[i], &error);
 		if (error)
-		{
-			ft_putstr("Error\nUn des arguments n'est pas un nombre\n");
-			exit(0);
-		}
+			clean_exit(list, NULL);
 		else
 		{
-			number = ft_atoi(av[i]);
+			number = ft_atoi(av[i++]);
 			new = create_number(number);
 			add_number(list, new);
 		}
-		i++;
 	}
 }
 
 void	from_str(t_list *list, char *str)
 {
-	int i;
-	long	number;
-	int error;
-	char **list_nbr;
-	t_list_number *new;
+	int				i;
+	long			number;
+	int				error;
+	char			**list_nbr;
+	t_list_number	*new;
 
 	i = 0;
 	number = 0;
@@ -48,24 +56,20 @@ void	from_str(t_list *list, char *str)
 	{
 		number = ft_atoi_check(list_nbr[i], &error);
 		if (error)
-		{
-			ft_putstr("Error\nUn des arguments n'est pas un nombre\n");
-			exit(0);
-		}
+			clean_exit(list, list_nbr);
 		else
 		{
-			number = ft_atoi(list_nbr[i]);
+			number = ft_atoi(list_nbr[i++]);
 			new = create_number(number);
 			add_number(list, new);
 		}
-		i++;
 	}
 	free_array(list_nbr);
 }
 
 t_list	*create_list(int ac, char **av)
 {
-	t_list *list;
+	t_list	*list;
 
 	list = (t_list *)malloc(sizeof(t_list));
 	if (!(list))
@@ -78,7 +82,7 @@ t_list	*create_list(int ac, char **av)
 		from_arr(list, ac, av);
 	else
 		from_str(list, av[1]);
-	if (list->size  == 0)
+	if (list->size == 0)
 	{
 		free_list(list);
 		list = 0;
@@ -90,8 +94,8 @@ t_list	*create_list(int ac, char **av)
 
 t_list_number	*return_unset_min(t_list *list)
 {
-	int	i;
-	int	min_exists;
+	int				i;
+	int				min_exists;
 	t_list_number	*min;
 	t_list_number	*tmp;
 

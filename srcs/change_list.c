@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   change_list.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:13:24 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:28:10 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 t_list_number	*create_number(int number)
@@ -15,7 +27,7 @@ t_list_number	*create_number(int number)
 	return (new);
 }
 
-void			add_number(t_list *list, t_list_number *number)
+void	add_number(t_list *list, t_list_number *number)
 {
 	t_list_number	*tmp;
 
@@ -41,7 +53,7 @@ void			add_number(t_list *list, t_list_number *number)
 
 void	add_move(t_move_list *list, t_move *move)
 {
-	t_move *last;
+	t_move	*last;
 
 	if (list && move)
 	{

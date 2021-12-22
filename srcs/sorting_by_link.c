@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_by_link.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:15:18 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:33:30 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	use_sa_link(t_list *list_a)
@@ -38,8 +50,8 @@ t_move_list	*sort_by_link(t_list *list_a)
 {
 	int			error;
 	t_list		*list_b;
-	t_move_list *move_list;
-	
+	t_move_list	*move_list;
+
 	error = 0;
 	list_b = create_list_b();
 	move_list = create_move_list();

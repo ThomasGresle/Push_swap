@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgresle <tgresle@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 20:15:37 by tgresle           #+#    #+#             */
+/*   Updated: 2021/12/22 21:28:42 by tgresle          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	is_move_to_b(t_list *list_a)
 {
-	int	i;
-	t_list_number *tmp;
+	int				i;
+	t_list_number	*tmp;
 
 	i = 0;
 	tmp = list_a->first;
@@ -19,8 +31,8 @@ int	is_move_to_b(t_list *list_a)
 
 void	move_s_util(t_list_number *first, t_list_number *second, t_list *list)
 {
-	t_list_number *prev;
-	t_list_number *next;
+	t_list_number	*prev;
+	t_list_number	*next;
 
 	prev = first->previous;
 	next = second->next;
